@@ -23,7 +23,7 @@ A fully converted, standalone version of the legendary **DebugMod** rewritten sp
 Since this is a Standalone BepInEx plugin, installation is straightforward:
 
 1. Make sure you have **BepInEx 5** (latest 2026 build compatible with Unity 2022+) correctly installed in your Hollow Knight directory.
-2. Go to the [Releases](https://github.com/your-username/HollowKnight-Standalone-DebugMod/releases) section of this repository and download `DebugMod.dll`.
+2. Go to the [Releases](https://github.com/bibobonking/Project-Convert-Debug-Mods/releases/tag/v1.0.0-beta) section of this repository and download `DebugMod.dll`.
 3. Move the downloaded `DebugMod.dll` into your game's plugin folder:
    ```text
    Hollow Knight/BepInEx/plugins/

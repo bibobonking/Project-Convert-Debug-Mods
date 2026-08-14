@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <HollowKnightFolder>C:\Users\Bibobon_king\Downloads\MODDING-WORKSPACE\HK-MODDING-WORKSPACE\SFCore-port\HkRefs</HollowKnightFolder>
+    <OutputDirectory>C:\Game\Hollow Knight\hollow_knight_Data\Managed\Mods</OutputDirectory>
+  </PropertyGroup>
+</Project>

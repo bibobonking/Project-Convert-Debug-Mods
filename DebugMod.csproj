@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectGuid>{932ED497-4C09-461E-B198-8B44FD9B288F}</ProjectGuid>
+
+    <RootNamespace>DebugMod</RootNamespace>
+    <AssemblyTitle>DebugMod</AssemblyTitle>
+    <AssemblyVersion>1.5.12620.0</AssemblyVersion>
+    <Deterministic>true</Deterministic>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <LangVersion>latest</LangVersion>
+    <TargetFramework>net472</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>CS1591</NoWarn>
+	<Nullable>enable</Nullable>
+    <ImplicitUsings>false</ImplicitUsings>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+  </PropertyGroup>
+
+	<!-- Create a LocalBuildProperties.props file which defines HollowKnightFolder (references dir) 
+  and OutputDirectory (where the post-build event sends the dll to) -->
+  <Import Project="LocalBuildProperties_example.props" Condition="Exists('LocalBuildProperties_example.props')" />
+  <Import Project="LocalBuildProperties.props" Condition="Exists('LocalBuildProperties.props')" />
+
+  <PropertyGroup>
+    <FrameworkPathOverride>$(HollowKnightFolder)</FrameworkPathOverride>
+  </PropertyGroup>
+
+ <ItemGroup>
+     <None Remove="Images\**\*.png" />
+ </ItemGroup>
+ <ItemGroup>
+     <EmbeddedResource Include="Images\**\*.png" />
+ </ItemGroup>
+
+ <!-- References -->
+    <ItemGroup>
+        <Reference Include="$(HollowKnightFolder)/*.dll" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="System.Memory" Version="4.5.5" />
+    </ItemGroup>
+
+	  <Target Name="CopyMod" AfterTargets="PostBuildEvent">
+        <Copy SourceFiles="$(TargetPath);$(TargetDir)$(TargetName).pdb;$(TargetDir)$(TargetName).xml" DestinationFolder="$(OutputDirectory)\$(TargetName)" SkipUnchangedFiles="true" />
+    </Target>
+
+</Project>

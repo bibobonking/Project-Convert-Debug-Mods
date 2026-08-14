@@ -1,29 +1,77 @@
-# Hollow Knight - Standalone DebugMod (v1.5.12620)
+# For any questions or bugs reports, join the [Modding Discord](https://discord.gg/F6Y5TeFQ8j)
+[![Discord](https://img.shields.io/discord/879125729936298015.svg?logo=discord&logoColor=white&logoWidth=20&labelColor=7289DA&label=Discord&color=17cf48)](https://discord.gg/F6Y5TeFQ8j)
 
-A fully converted, standalone version of the legendary **DebugMod** rewritten specifically for Hollow Knight version **1.5.12620** (Latest Steam Update). This port completely bypasses the traditional Modding API (Lumafly) and runs directly as a native **BepInEx 5** plugin.
-
-## 🚀 Key Features
-* **API-Independent:** Runs completely standalone. No need to install Lumafly or the standard Modding API, minimizing overhead and preventing version mismatch crashes.
-* **1.5.12620 Native Compatibility:** Fixed the infamous MonoMod Preloader/Harmony crashes (`MissingMethodException`) caused by Team Cherry's native D3D12/Unity engine updates.
-* **Optimized Core:** Synchronized with the latest 2026 MonoMod/Cecil dependencies for flawless injection.
-
----
-
-## ⚠️ Important Project Status & Notes
-
-> 📌 **DEVELOPMENT NOTE (Current Status: 99% Complete)**
-> The project has successfully achieved native code injection and core functionality. However, it is currently in the final polishing phase:
-> * **Menu Hotkey:** The current default key to toggle the Debug Menu is **F1**.
-> * **KeyCode Notice:** A few minor input KeyCodes are currently bugged or mismatched due to the new Unity Input System changes in v1.5.12620. A hotfix to re-map these remaining keybindings is actively being worked on and will be pushed in the next update! Everything else is fully functional.
-
----
-
-## 🛠️ Installation Guide
-
-Since this is a Standalone BepInEx plugin, installation is straightforward:
-
-1. Make sure you have **BepInEx 5** (latest 2026 build compatible with Unity 2022+) correctly installed in your Hollow Knight directory.
-2. Go to the [Releases](https://github.com/bibobonking/Project-Convert-Debug-Mods/releases/tag/v1.0.0-beta) section of this repository and download `DebugMod.dll`.
-3. Move the downloaded `DebugMod.dll` into your game's plugin folder:
-   ```text
-   Hollow Knight/BepInEx/plugins/
+### To see changes in the recent version, read the [ChangeLog](https://github.com/TheMulhima/HollowKnight.DebugMod/blob/master/ChangeLog.md)   
+----------------------------------------------------------------------------------------
+                                       FEATURES
+----------------------------------------------------------------------------------------
+* A completely new toggleable UI in game that provides the following functions:
+* Cheats such as invincibility and noclip
+* The ability to unlock all charms or repair broken ones
+* Change which skills the player has
+* Change which items the player has
+* Give the player more of consumable resources such as geo and essence
+* Respawn bosses
+* Hold multiple dream gate positions
+* Change the player's respawn point to anywhere in the current scene
+* Recall to the set respawn point
+* Kill all enemies
+* Add HP bars to enemies
+* Draw collision boxes for enemies
+* Clone or delete any enemy
+* Set an enemy's health to 9999
+* Change the player's nail damage
+* Damage the player
+* Change the camera zoom level
+* Disable the in game HUD
+* Make the player invisible
+* Disable the lighting around the player
+* Disable the vignette drawn around the player
+* Change the time scale of the game
+----------------------------------------------------------------------------------------
+                             INSTALLATION (STEAM, WINDOWS)
+----------------------------------------------------------------------------------------
+1) Download the modding API from here: https://drive.google.com/open?id=0B_b9PFqx_PR9X1ZrWGFxUGdydTg
+2) Right click Hollow Knight in Steam -> Properties -> Local Files -> Browse Local Files
+3) Create a backup of the game files located here
+4) Copy the contents of the modding API zip into this folder (Overwrite files when asked)
+5) Copy the contents of this zip into the folder (Overwrite files when asked)
+6) This mod should not affect saves negatively, but it is a good idea to back them up anyway.
+   Saves are located at %AppData%\..\LocalLow\Team Cherry\Hollow Knight\
+----------------------------------------------------------------------------------------
+                     UPGRADING SAVE STATES TO SAVE STATES WITH PAGES
+----------------------------------------------------------------------------------------
+If you're upgrading DebugMod from version `1.4.7` or below, do the following:
+1) Update the installed mod.
+2) Start Hollow Knight and then exit.
+3) Open a file browser and navigate to `%APPDATA%\..\LocalLow\Team Cherry\Hollow Knight`
+4) Open DebugMod.GlobalSettings.json in a text editor
+5) Modify MaxSaveStates's value from 6 to 10 if you want more save states per page of
+   save states. Don't go higher than 10 - not exactly sure what'll happen but it 
+   probably won't work as you want.
+7) Save and close the file.
+8) Back in the file browser, navigate to `Savestates Current Patch` - these are your 
+   old save states
+9) Move them to `%APPDATA%\..\LocalLow\Team Cherry\Hollow Knight\DebugModData\Savestates Current Patch\0`
+   - this should make them visible to the updated mod on the first page of the save 
+   states. The directory should be empty if you're upgrading from verion `1.4.7` 
+   or below. You can delete `%APPDATA%\..\LocalLow\Team Cherry\Hollow Knight\Savestates Current Patch`
+   if you like.
+10) Boot the game back up. You should be good to go!
+11) Additionally, you probably want to bind the Next/Previous Page commands to make full
+    use of the save state pages feature.
+----------------------------------------------------------------------------------------
+                                     CREDITS
+----------------------------------------------------------------------------------------
+Coding - Seanpr<br />
+SaveStates/Old Current Patch - 56<br />
+UI design and graphics - The Embraced One<br />
+Assistance with canvas - KDT<br />
+1.5 and A lot of Changes - Mulhima<br />
+Multiple SaveStates/Minimal info panel- Cerpin<br />
+Improve hitbox viewer - DemoJameson<br />
+Multiple SaveState Pages - Magnetic Pizza (and jhearom for porting to cp)<br />
+Additional Glitched functionality - pseudorandomhk<br />
+Additional Bindable Functions, and Fix Stuff - Flib<br/>
+Buttons to directly run bindable actions - flukebull<br/>
+Add frame by frame advance code - SFGrenade<br/>
